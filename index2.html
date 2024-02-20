@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="styles.css">
+  <title>emi - calculator</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+  
+
+  <div class="row" style="margin-top: 30px;">
+
+
+    <div class="col-md-8 col-sm-12 calulate-emi" style="padding-left: 10px; padding-right: 10px;">
+
+      <div class="row">
+        <div class="row">
+          <div class="col-md-6" style="text-align: left;" >
+              <h4 style="color:#b8204c ; margin-top: 5px;"><span id="mainTitle">Home Loan</span> EMI Calculator</h4>
+          </div>
+
+          <div class="col-md-6" >
+         
+
+
+            <div class="tab">
+              <button class="tablinks" onclick="homeLoan(); updateInput('home');"> <i class="fa-solid fa-house"></i>&nbsp;Home Loan</button>
+              <button class="tablinks" onclick="businessLoan(); updateInput('business');"><i class="fa-solid fa-business-time"></i>&nbsp;Business Loan</button>
+              <button class="tablinks" onclick="personalLoan(); updateInput('personal');"><i class="fa-regular fa-user"></i>&nbsp;Personal Loan</button>
+            </div>
+
+          </div>
+        </div>
+        
+      
+
+        <div class="row" style="margin-top: 10px;">
+  <div class="col-md-4">
+    <label for="loanAmount" style="font-size: 25px; color: #007bff;">Loan Amount</label>     
+   
+  </div>
+
+  <div class="col-md-5">
+  </div>
+
+  <div class="col-md-3" style="display: flex; justify-content: start; ">
+    <span style="background-color: rgb(205, 205, 205);
+                                        padding: 2px; padding-left: 12px;
+                                         padding-right: 12px; color:  black;
+                                          text-align: center; align-items: center; color: #007bff; padding-top: 9px;">₹</span>
+    <input onchange="loanInput()" type="number" value="50000000" id="loanAmount"  required>
+  </div>
+  
+ 
+
+
+
+  <div class="col-md-12" style="margin-top: 9px;">
+	  
+
+
+<!-- for home loan -->
+<div class="range-slider" id="homeLoanAmmount">
+  <input type="range" min="500000" max="20000000" value="500000" id="range" step="1" />
+  <div class="sliderticks">
+    <span>5L</span>
+    <span>44L</span>
+    <span>82L</span>
+    <span>1.16Cr</span>
+    <span>1.74Cr</span>
+    <span>2Cr</span>
+  </div>
+</div>
+
+
+
+
+<!-- Business Loan -->
+<div class="range-slider" style="display: none;" id="businessLoanAmmount">
+  <input type="range" min="1000000" max="30000000" value="1000000" id="businessLoanRange" step="1" />
+  <div class="sliderticks">
+    <span>10L</span>
+    <span>68L</span>
+    <span>96L</span>
+    <span>1.39Cr</span>
+    <span>2.25Cr</span>
+    <span>3Cr</span>
+  </div>
+</div>
+
+
+
+
+
+<!-- for personal Loan -->
+<div class="range-slider" id="personalLoanAmount" style="display: none;">
+  <input type="range" min="100000" max="3000000" value="100000" id="personalLoanRange" step="100000" />
+  <div class="sliderticks">
+    <span>1L</span>
+    <span>10L</span>
+    <span>15L</span>
+    <span>20L</span>
+    <span>25L</span>
+    <span>30L</span>
+  </div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<!--  tenure start -->
+      <div class="row" style="margin-top: 30px; ">
+        <div class="col-md-4">
+          <label for="loanAmount" style="font-size: 25px; color: #007bff;">Loan Tenure</label>
+        </div>
+
+        <div class="col-md-5">
+        </div>
+
+        <div class="col-md-3" style="display: flex; justify-content: start;">
+          <span style="background-color: rgb(205, 205, 205);
+                                              padding: 2px; padding-left: 8px;
+                                               padding-right: 8px; color:  black;
+                                                text-align: center; align-items: center;
+                                                display: flex;">
+
+<input onclick="displayTenure(); updateTenure('years');" type="radio" id="years" name="tenureType" value="years" checked> <span  style="color: #007bff; font-weight: bolder;" for="years">Yr</span>
+
+<input onclick="displayTenure(); updateTenure('months');" type="radio" id="months" name="tenureType" value="months" style="margin-left: 4px;"> <span style="color: #007bff; font-weight: bolder; " for="months">Mo</span>
+          </span>
+          <input onchange="tenureInput(); "  type="number" value="10" id="tenure" required>
+        </div>
+
+        <div class="col-md-12" style="margin-top: 9px;">
+
+          <!-- for home loan -->
+          <div class="range-slider" id="homeTenure">
+         <!-- Tenure Year -->
+<input class="tenureYearInput" type="range" min="1" max="30" value="10" id="range2" step="1" />
+
+
+<!-- Tenure Month -->
+<input class="tenureMonthInput" style="display: none;" type="range" min="12" max="360" value="9" id="range2_2" step="1" />
+
+<!-- Tenure Year Ticks -->
+<div class="sliderticks tenureYearticks">
+  <span>1Yr</span>
+  <span>5Yr</span>
+  <span>10Yr</span>
+  <span>15Yr</span>
+  <span>20Yr</span>
+  <span>25Yr</span>
+  <span>30Yr</span>
+</div>
+
+
+<!-- Tenure Month Ticks -->
+<div class="sliderticks tenureMonthTicks" style="display: none;">
+  <span>6Mo</span>
+  <span>77Mo</span>
+  <span>148Mo</span>
+  <span>218Mo</span>
+  <span>288Mo</span>
+  <span>360Mo</span>
+</div>
+
+
+          </div>
+
+
+          <!-- for personal loan -->
+<div class="range-slider" id="personalTenure" style="display: none;">
+<!-- tenure year -->
+<input class="tenureYearInput" type="range" min="1" max="5" value="1" id="personalTenureYear" step="1" />
+  <!-- tenure Month -->
+  <input class="tenureMonthInput" style="display: none;" type="range" min="6" max="60" value="12" id="personalTenureMonth" step="1" />
+<!-- tenure year ticks -->
+<div class="sliderticks tenureYearticks">
+  <span>1Yr</span>
+  <span>2Yr</span>
+  <span>3Yr</span>
+  <span>4Yr</span>
+  <span>5Yr</span>
+</div>
+  <!-- tenure month -->
+  <div class="sliderticks tenureMonthTicks"  style="display: none;">
+      <span>6Mo</span>
+      <span>17Mo</span>
+      <span>28Mo</span>
+      <span>38Mo</span>
+      <span>49Mo</span>
+      <span>60Mo</span>
+  </div>
+</div>
+
+
+         <!-- for business loan -->
+<div class="range-slider" id="businessTenure" style="display: none;">
+  <!-- tenure year -->
+  <input class="tenureYearInput" type="range" min="1" max="40" value="11" id="businessTenureYear" step="1" />
+  <!-- tenure Month -->
+  <input class="tenureMonthInput" style="display: none;" type="range" min="12" max="420" value="24" id="businessTenureMonth" step="1" />
+
+  <!-- tenure year -->
+  <div class="sliderticks tenureYearticks">
+      <span>1Yr</span>
+      <span>10Yr</span>
+      <span>20Yr</span>
+      <span>30Yr</span>
+      <span>40Yr</span>
+  </div>
+  <!-- tenure month -->
+  <div class="sliderticks tenureMonthTicks" style="display: none;">
+      <span>12Mo</span>
+      <span>95Mo</span>
+      <span>176Mo</span>
+      <span>258Mo</span>
+      <span>338Mo</span>
+      <span>420Mo</span>
+  </div>
+</div>
+
+
+
+        </div>
+
+
+      </div>
+
+      <!--  intrest rate -->
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-4">
+          <label for="interestRate" style="font-size: 25px; color: #007bff;">Interest Rate</label>
+        </div>
+
+        <div class="col-md-5">
+        </div>
+
+        <div class="col-md-3" style="display: flex; justify-content: start; ">
+          <span style="background-color: rgb(205, 205, 205);
+                                              padding: 2px; padding-left: 12px;
+                                               padding-right: 12px; color:  black;
+                                                text-align: center; align-items: center; color: #007bff; padding-top: 8px;">%</span>
+          <input onchange="interestRateInput()" type="number" value="9" id="interestRate" required>
+        </div>
+
+        <div class="col-md-12" style="margin-top: 9px;">
+
+       <!-- home percentage -->
+          <div class="range-slider" id="homeIntrestRate">
+            <input type="range" min="4" max="16" value="9" id="range3" step="1" />
+            <div class="sliderticks">
+              <span>4</span>
+              <span>6</span>
+              <span>8</span>
+              <span>10</span>
+              <span>12</span> 
+              <span>14</span>
+              <span>16</span>
+            </div>
+          </div>
+
+
+      <!--  business percentage -->
+<div class="range-slider" id="BusinessIntrestRate" style="display: none;">
+  <input type="range" min="9" max="36" value="12" id="BusinessIntrestRateRange" step="1" />
+  <div class="sliderticks">
+    <span>9</span>
+    <span>14</span>
+    <span>20</span>
+    <span>25</span>
+    <span>30</span>
+    <span>36</span>
+  </div>
+</div>
+
+<!-- personal percentage -->
+<div class="range-slider" id="PersonalIntrestRate" style="display: none;">
+  <input type="range" min="5" max="25" value="10" id="PersonalIntrestRateRange" step="1" />
+  <div class="sliderticks">
+    <span>5</span>
+    <span>10</span>
+    <span>15</span>
+    <span>20</span>
+    <span>25</span>
+  </div>
+</div>
+
+
+        </div>
+
+
+
+  <div class="col-md-12" style="    margin-top: 30px;
+  text-align: center; padding-bottom: 10px;">
+          <button onclick="calculateEMI()"> 
+          <i class="fas fa-calculator"></i>&nbsp;
+          Calculate EMI</button>
+   </div>
+  </div>
+
+
+  </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="col-md-4 col-sm-12 calculated-result">
+      
+
+        <div class="row" >
+          <div class="col-md-12" style="text-align: center; background-color: #b8204c !important; padding: 5px; color: white; font-weight: bolder;">
+            <i class="fa-regular fa-clipboard"></i>&nbsp;
+  Detailed Calculations
+          </div>
+          <hr style="margin: 0px;">
+
+       
+        <div class="col-md-12" style="text-align: center;">
+          <span class="Details-span" style="color: rgb(2, 194, 2);">₹</span><span style="color:  rgb(2, 194, 2);" id="emiResult" class="Details-span"></span>
+          <p style="color: rgb(105, 253, 105);">Monthly EMI </p>
+        </div>
+        
+        <hr>
+
+        <div class="col-md-12" style="text-align: center;">
+          <span class="Details-span" style="color: #f08205;">₹</span> <span style="color: #f08205;" id="interestResult" class="Details-span"></span>
+          <p style="color: #ffc078;" > <i class="fa-solid fa-chart-line"></i> &nbsp;Total interest payable over the loan term </p>
+        </div>
+        
+
+        <hr>
+
+        <div class="col-md-12" style="text-align: center;">
+          <span class="Details-span">₹</span> <span id="payableAmountResult" class="Details-span"> </span>
+          <p style="color: #86c0ff;"> <i class="fa-solid fa-money-check-dollar"></i> &nbsp;Total payments made over the loan term </p>
+        </div>
+ 
+    </div>
+
+  </div>
+
+
+
+   <!-- display graph  star-->
+<div class="row" id="graph">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="chartjs" style="width: 350px;">
+      <canvas id="myChart"></canvas>
+
+    </div>
+  </div>
+</div>
+
+
+   
+<!-- display graph  End-->
+
+   <div class="row" style="margin-bottom: 30px;">
+    <div class="col-md-12" style="overflow-x: auto;" >
+      <table id="outputTable">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Beginning Loan Balance</th>
+            <th style="background-color: rgb(2, 194, 2) !important;">EMI</th>
+            <th>Principal</th>
+            <th style="background-color: #ed8c2b !important;">Monthly Interest</th>
+            <th style="background-color: #b8204c !important;">Outstanding Balance</th>
+          </tr>
+        </thead>
+        <tbody id="outputTableBody"></tbody>
+      </table>
+    </div>
+  </div> 
+
+</div>
+
+
+</div>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+               <!-- chatjs cdn -->
+               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

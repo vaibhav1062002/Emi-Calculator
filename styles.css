@@ -1,0 +1,321 @@
+/* styles.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  color: #007bff;
+  font-weight: bolder;
+  border: 2px solid rgb(205, 205, 205);
+}
+
+button {
+  background-color: #b8204c !important;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+  .emi-calculator-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #61a4ed;
+  color: #fff;
+}
+
+
+
+.calulate-emi{
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+ 
+}
+
+.calculated-result{
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+
+}
+
+
+
+.Details-span{
+  color: #007bff;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+
+/* for range  */
+
+.range-slider {
+  flex: 1;
+}
+
+.sliderticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.sliderticks span {
+  display: flex;
+  justify-content: center;
+  width: 1px;
+  height: 10px;
+  background: #d3d3d3;
+  line-height: 40px;
+}
+
+/*=============
+End tick marks
+=========================*/
+
+
+input[type="range"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none; 
+  /* creating a custom design */
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  /*  overflow: hidden;  remove this line*/
+  
+  /* New additions */
+  height: 6px;
+  background: #ccc;
+}
+
+/* Thumb: webkit */
+input[type="range"]::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none; 
+  /* creating a custom design */
+  height: 15px;
+  width: 15px;
+  background-color: #007bff;
+  border-radius: 50%;
+  border: none;
+
+  /* box-shadow: -407px 0 0 400px #007bff; emove this line */
+  transition: .2s ease-in-out;
+}
+
+/* Thumb: Firefox */
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #007bff;
+  border-radius: 50%;
+  border: none;
+  
+  /* box-shadow: -407px 0 0 400px #007bff; emove this line */
+  transition: .2s ease-in-out;
+}
+
+/* Hover, active & focus Thumb: Webkit */
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(255,85,0, .1)
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+}
+
+/* Hover, active & focus Thumb: Firfox */
+
+input[type="range"]::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(255,85,0, .1)
+}
+input[type="range"]:active::-moz-range-thumb {
+  box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+}
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 13px rgba(255,85,0, .2)    
+}
+
+/*=============
+Aesthetics 
+=========================*/
+
+body {
+  font-family: system-ui;
+}
+
+h1 {
+  color: #4b4949; 
+  text-align: center;
+}
+
+.wrapper {
+  color: #4b4949; 
+  background: #007bff;
+  max-width: 400px;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 8rem;
+  width: 80%;
+  background: #fff;
+  padding: 0px 10px;
+}
+
+.value {
+  font-size: 26px;    
+  width: 50px;
+  text-align: center;
+}
+
+
+ul{
+  display: flex;
+  list-style-type: none;
+}
+
+ul li {
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-top: 9px;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #e7eef1;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid rgb(112 116 112);
+  background-color: #85BB65;
+}
+
+ul li:hover{
+  color: #767879;
+  box-shadow: 2px 2px 2px #7ebd59;
+}
+
+/* Your grid styles for larger screens */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  background-color: #b8204c !important;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: rgba(115, 183, 255, 0.552);
+  color: blue;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+
+
+
+
+/* Media query to remove grid on smaller screens */
+@media (max-width: 768px) {
+  .grid-item {
+    /* Adjust styles for grid items on smaller screens */
+    width: 100%; /* You may want to set the width to 100% or another value */
+  }
+
+  .calculated-result{
+margin-top: 34px;
+border-radius: 41px;
+  }
+  .emi-calculator-button{
+    font-size: 9px;
+  }
+
+  #graph{
+    margin-top: 30px !important;
+	
+  }
+	.tab button{
+		 padding: 10px 10px;
+		 font-size: 8px !important;
+	}
+}
